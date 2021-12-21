@@ -5,23 +5,23 @@ import 'package:http/http.dart' as http;
 import 'package:mail/mail.dart';
 
 class MailgunMailer implements Mailer {
-  final String domain;
-  final String apiKey;
+  final String? domain;
+  final String? apiKey;
 
   MailgunMailer({this.domain, this.apiKey});
 
   @override
   Future<SendResponse> send(
-      {String from,
+      {String? from,
       List<String> to = const [],
       List<String> cc = const [],
       List<String> bcc = const [],
       List<dynamic> attachments = const [],
-      String subject,
-      String html,
-      String text,
-      String template,
-      Map<String, dynamic> options}) async {
+      String? subject,
+      String? html,
+      String? text,
+      String? template,
+      Map<String, dynamic>? options}) async {
     var client = http.Client();
     try {
       var request = http.MultipartRequest(
